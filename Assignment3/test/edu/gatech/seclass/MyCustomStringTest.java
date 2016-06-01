@@ -83,6 +83,8 @@ public class MyCustomStringTest {
     public void testConvertDigitsToNamesInSubstring5() { fail("Not yet implemented"); }
 
     @Test(expected = MyIndexOutOfBoundsException.class)
-    public void testConvertDigitsToNamesInSubstring6() { fail("Not yet implemented"); }
+    public void testConvertDigitsToNamesInSubstring6() { 
+    	mycustomstring.setString("Small String");
+        mycustomstring.convertDigitsToNamesInSubstring(17, 23); }
 
 }
