@@ -17,13 +17,18 @@ public class MyCustomString implements MyCustomStringInterface{
 	}
 
 	@Override
-	public String getEveryNthCharacter(int n) {
+	public String getEveryNthCharacter(int n) throws NullPointerException, IllegalArgumentException{
 		// TODO Auto-generated method stub
 		int i =1;
 		int index = i*n - 1;
 		String mystring = this.inputString;
 		String newstring = "";
 		char letter= '0';
+		
+		
+		if (n > mystring.length()) {
+			throw new IllegalArgumentException();
+		}
 
 		while (index< mystring.length()) {
 			letter = mystring.charAt(index);
@@ -39,7 +44,7 @@ public class MyCustomString implements MyCustomStringInterface{
 	}
 
 	@Override
-	public int countDigits() {
+	public int countDigits() throws NullPointerException {
 		// TODO Auto-generated method stub
 		int countDigits=0;
 		char nthChar;
@@ -57,7 +62,7 @@ public class MyCustomString implements MyCustomStringInterface{
 
 	@Override
 	public void convertDigitsToNamesInSubstring(int startPosition, int endPosition)
-			throws MyIndexOutOfBoundsException, IllegalArgumentException {
+			throws MyIndexOutOfBoundsException, IllegalArgumentException, NullPointerException {
 		// TODO Auto-generated method stub
 		if (startPosition > endPosition){
 			throw new IllegalArgumentException();

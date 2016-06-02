@@ -26,19 +26,22 @@ public class MyCustomStringTest {
         assertEquals(6, mycustomstring.countDigits());
     }
 
-	@Test
+	@Test (expected = NullPointerException.class)
 	public void testCountDigits2() {
-		fail("Not yet implemented");
+		mycustomstring.setString(null);
+		mycustomstring.countDigits();
 	}
 
 	@Test
 	public void testCountDigits3() {
-		fail("Not yet implemented");
+		mycustomstring.setString("This string has no digits");
+        assertEquals(0, mycustomstring.countDigits());
 	}
 
 	@Test
 	public void testCountDigits4() {
-		fail("Not yet implemented");
+		mycustomstring.setString("");
+        assertEquals(0, mycustomstring.countDigits());
 	}
 
     @Test
@@ -48,19 +51,27 @@ public class MyCustomStringTest {
     }
 
 	@Test
-	public void testGetEveryNthCharacter2() { fail("Not yet implemented"); }
+	public void testGetEveryNthCharacter2() { 
+		mycustomstring.setString("9 multipl");
+        assertEquals("l", mycustomstring.getEveryNthCharacter(9));
+	}
 
-	@Test
-	public void testGetEveryNthCharacter3() { fail("Not yet implemented"); }
+	@Test (expected= NullPointerException.class)
+	public void testGetEveryNthCharacter3() { 
+		mycustomstring.setString(null);
+		mycustomstring.getEveryNthCharacter(9);
+	}
 
-	@Test
+	@Test (expected= IllegalArgumentException.class)
 	public void testGetEveryNthCharacter4() {
-		fail("Not yet implemented");
+		mycustomstring.setString("Small");
+		mycustomstring.getEveryNthCharacter(6);
 	}
 
     @Test
     public void testGetEveryNthCharacter5() {
-        fail("Not yet implemented");
+    	mycustomstring.setString("Small");
+        assertEquals("l", mycustomstring.getEveryNthCharacter(5));
     }
 
     @Test
@@ -71,16 +82,29 @@ public class MyCustomStringTest {
     }
 
     @Test
-    public void testConvertDigitsToNamesInSubstring2() { fail("Not yet implemented"); }
+    public void testConvertDigitsToNamesInSubstring2() { 
+    	mycustomstring.setString("Ar9ument5 fr0m fir57 t10 las7 posi7ion");
+        mycustomstring.convertDigitsToNamesInSubstring(1, 38);
+        assertEquals("ArNineumentFive frZerom firFiveSeven tTen lasSeven posiSevenion", mycustomstring.getString());
+    }
 
     @Test
-    public void testConvertDigitsToNamesInSubstring3() { fail("Not yet implemented"); }
+    public void testConvertDigitsToNamesInSubstring3() { 
+    	mycustomstring.setString("00101100");
+    	mycustomstring.convertDigitsToNamesInSubstring(1, 8);
+    	assertEquals("ZeroZeroTenOneTenZero", mycustomstring.getString()); }
 
-    @Test
-    public void testConvertDigitsToNamesInSubstring4() { fail("Not yet implemented"); }
+    @Test (expected = NullPointerException.class)
+    public void testConvertDigitsToNamesInSubstring4() { 
+    	mycustomstring.setString(null);
+    	mycustomstring.convertDigitsToNamesInSubstring(1, 8); 
+    }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testConvertDigitsToNamesInSubstring5() { fail("Not yet implemented"); }
+    public void testConvertDigitsToNamesInSubstring5() { 
+    	mycustomstring.setString("Small String");
+        mycustomstring.convertDigitsToNamesInSubstring(23, 17);
+    }
 
     @Test(expected = MyIndexOutOfBoundsException.class)
     public void testConvertDigitsToNamesInSubstring6() { 
