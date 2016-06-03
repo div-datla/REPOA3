@@ -65,7 +65,7 @@ public class MyCustomStringTest {
 	@Test (expected= IllegalArgumentException.class)
 	public void testGetEveryNthCharacter4() {
 		mycustomstring.setString("Small");
-		mycustomstring.getEveryNthCharacter(6);
+		mycustomstring.getEveryNthCharacter(0);
 	}
 
     @Test

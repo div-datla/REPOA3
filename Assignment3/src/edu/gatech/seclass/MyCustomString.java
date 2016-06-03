@@ -26,7 +26,7 @@ public class MyCustomString implements MyCustomStringInterface{
 		char letter= '0';
 		
 		
-		if (n > mystring.length()) {
+		if (n > mystring.length() || n<1) {
 			throw new IllegalArgumentException();
 		}
 
